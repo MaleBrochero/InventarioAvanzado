@@ -2,20 +2,7 @@
 ## Lista inventario 
 inventario=[]
 #### Entrada de datos 
-nombre_producto=input("Por favor agrega el nombre del producto")
-inventario.append(nombre_producto)
 try:
-    precio= float(input("Por favor ingrese eel precio del producto"))
-    inventario.append(precio)
-    cantidad = int(input("Por favor ingrese cantidad del producto "))
-    inventario.append(cantidad)
-    #### Operacion Matematica
-
-    costo_total = precio * cantidad
-    
-    ### Mostrar resultados en consola
-    print(f"""Nombre del producto: {nombre_producto} // Precio unitario: {precio} // Cantidad: {cantidad} 
-           // Costo total calculado: {costo_total}""")
     
     ####Crea un menú que pregunte al usuario qué acción desea realiza
     menu=input(f""" Por favor seleccione el numero segun la operacion que desea realizar :
@@ -24,22 +11,43 @@ try:
                 3.Calcular estadísticas
                 4.Salir """)
     while menu == "1" or "2" or "3" :
-        
+
         if menu == "1": #Agrega producto
             nombre_producto=input("Por favor agrega el nombre del producto")
-            inventario.append(nombre_producto)
             precio= float(input("Por favor ingrese eel precio del producto"))
-            inventario.append(precio)
-            cantidad = int(input("Por favor ingrese cantidad del producto "))
-            inventario.append(cantidad)
             
-            print("")
+            cantidad = int(input("Por favor ingrese cantidad del producto "))
+            costo_total = precio * cantidad
+
+            producto = { "Nombre del producto" : nombre_producto, 
+                    "Precio_unitario" : precio, 
+                    "Cantidad " : cantidad,
+                    "Costo_total_calculado " : costo_total}
+            
+            inventario.append(producto)
+
         elif menu == "2": #Mostrar Investario
-            print("")
+
+            for producto in inventario:
+                print(producto)
+                print(producto["Nombre"])
+
+
+
+
+
+            print( inventario )
         elif menu == "3": #Calcular estadistica
-            print ("")
+
+            valor_total_inventario += costo_total
+            cantidad_de_producto_registrado = inventario.count()
+
+            print (f"""Cantidad de productos en el inventario {cantidad_de_producto_registrado}
+                        Valor total del inventario {valor_total_inventario} """)
+
         elif menu == "4": #Salir
-            print("")
+            print(" Fin ")
+
         else :
             print("Caracter equivocado , por favor vuelva a intentar")
             
@@ -48,6 +56,8 @@ try:
         2.Mostrar inventario
         3.Calcular estadísticas
         4.Salir """)
-            
-        
-except ("Caracter invalido vuelva a intentar")
+    print (" Programa finalizado")
+except ValueError:
+    print("Caracter invalido vuelva a intentar")
+
+
