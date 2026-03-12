@@ -27,5 +27,7 @@ _This project manages a company's inventory. The inventory is dynamic and includ
 
 _The program runs in the console with a numeric menu. Follow the instructions as indicated by the program._
 
+**Conclusion: The system helps the user manage an inventory in a simple way. It allows the user to add products, store their information, and view the inventory. The system also calculates the total value of the inventory and shows how many products are registered**
+
 
 
