@@ -1,9 +1,9 @@
 
 #### Entrada de datos 
-nombre_producto=input("Por favor agrega el nombre del producto")
+nombre_producto=input("Por favor agrega el nombre del producto\n")
 try:
-    precio= float(input("Por favor ingrese eel precio del producto"))
-    cantidad = int(input("Por favor ingrese cantidad del producto "))
+    precio= float(input("Por favor ingrese eel precio del producto\n"))
+    cantidad = int(input("Por favor ingrese cantidad del producto\n "))
     
 #### Operacion Matematica
 

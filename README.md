@@ -19,10 +19,13 @@ _This project manages a company's inventory. The inventory is dynamic and includ
 ## How it works 
     
   1.    The system checks if the character is valid; if it is, the system continues, else it shows an error message.
+    2.    The system allows the user to choose different options.
+      3.    The system allows the user to add a product with its name, price, and quantity
+        4.   he system calculates the total cost of the product using price and quantity.
+          5.  The system saves the product in memory and also allows the user to save or load a .CSV file.
 
-    2.   The system allows the user to choose different options.
 
-        3.  The system saves the product in memory and also allows the user to save or load a .CSV file.
+_The program runs in the console with a numeric menu. Follow the instructions as indicated by the program._
 
 
-The program runs in the console with a numeric menu. Follow the instructions as indicated by the program._
+
