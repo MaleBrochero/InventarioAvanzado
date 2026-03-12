@@ -12,4 +12,5 @@ try:
 ### Mostrar resultados en consola
     print(f"""Nombre del producto: {nombre_producto} // Precio unitario: {precio} // Cantidad: {cantidad} 
            // Costo total calculado: {costo_total}""")
-except("Caracter invalido vuelva a intentar")
+except ValueError:
+                print("Caracter invalido vuelva a intentar")
