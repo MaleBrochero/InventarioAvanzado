@@ -3,6 +3,18 @@ import csv
 
 
 def guardar_csv(inventario, ruta, incluir_header=True):
+    """
+    Sonda el inventario actual y lo guarda en un archivo CSV estableciendo
+    el formato estricto: nombre, precio, cantidad.
+    
+    Parámetros:
+    - inventario (list): La lista de diccionarios con el inventario a respaldar.
+    - ruta (str): Ubicación y nombre del archivo CSV.
+    - incluir_header (bool): Verdadero por defecto. Agrega la primera línea de títulos técnicos.
+    
+    Retorno:
+    - None
+    """
     if len(inventario) == 0:
         print("El inventario esta vacio. No hay nada que guardar.")
         return
@@ -27,6 +39,16 @@ def guardar_csv(inventario, ruta, incluir_header=True):
 
 
 def cargar_csv(ruta):
+    """
+    Lee y valida un archivo CSV para extraer una lista de productos. 
+    Aplica controles para descartar filas con menos de 3 columnas o tipos numéricos incorrectos/negativos.
+    
+    Parámetros:
+    - ruta (str): Ubicación del archivo a leer.
+    
+    Retorno:
+    - list: Una nueva lista de diccionarios {"nombre", "precio", "cantidad"} validada.
+    """
     productos_validos = []
     filas_invalidas = 0
 
@@ -50,7 +72,7 @@ def cargar_csv(ruta):
         for fila in lector:
 
             if len(fila) != 3:
-                print("Fila " + str(numero_fila) + ": se esperaban 3 columnas. Omitida.")
+                print("Fila " + str(numero_fila) + ": se esperaban exactamente 3 columnas. Omitida.")
                 filas_invalidas = filas_invalidas + 1
                 numero_fila = numero_fila + 1
                 continue
@@ -122,6 +144,18 @@ def cargar_csv(ruta):
 
 
 def integrar_csv(inventario, ruta):
+    """
+    Carga un archivo CSV externo y permite al usuario definir una política para integrarlo a su inventario actual.
+    Si se elige Sobrescribir (S), el archivo reemplazará por completo el inventario en memoria.
+    Si se elige Fusionar (N), los productos de coincidencia de nombre alteran sus cantidades y el precio se actualiza.
+    
+    Parámetros:
+    - inventario (list): La lista de diccionarios en la memoria principal.
+    - ruta (str): Ubicación del archivo CSV a integrar.
+    
+    Retorno:
+    - None
+    """
     # Politica de fusion:
     # Si el nombre ya existe: suma la cantidad y actualiza el precio al nuevo.
     # Si el nombre no existe: se agrega directamente.
